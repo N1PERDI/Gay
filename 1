@@ -1,0 +1,32 @@
+def main():
+    # Чтение входных данных
+    with open("26.txt", "r") as file:
+        S, N = map(int, file.readline().split())
+        sizes = [int(file.readline()) for _ in range(N)]
+    
+    # Сортировка файлов по возрастанию
+    sizes.sort()
+    
+    total_size = 0
+    max_users = 0
+    max_file_size = 0
+    
+    # Последовательное добавление файлов
+    for size in sizes:
+        if total_size + size <= S:
+            total_size += size
+            max_users += 1
+            max_file_size = max(max_file_size, size)
+        else:
+            break
+    
+    # Вывод результата
+    print(max_users, max_file_size)
+
+if __name__ == "__main__":
+    main()
+
+
+
+ссылка:https://docs.google.com/document/u/0/d/1u5zHVx5Sw8g9hSYOC0Dw1P1CWfevynsU5rPErUW7PzQ/mobilebasic
+ссылка2: 
