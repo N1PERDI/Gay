@@ -55,3 +55,16 @@ if sm < s:
             break
 
 print(cnt, mx)
+
+f = open("26.txt")
+n=int(f.readline())
+array=[int(n) for n in f.readlines()]
+array.sort()
+counter = 0
+for i in range(0, n - 1):
+    for j in range(n - 1, i, -1):
+        if (array[i] + array[j] == 100 and array[i] != 0 and array[j] != 0):
+            counter += 1
+            array[j] = 0
+            break
+print(counter)
